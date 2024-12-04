@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2D122E">
+  <meta name="description" content="PWA für das Rollenspiel">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <title>Rollenspiel</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="app.js"></script>
+  <script>
+    // Register the service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then(
+          () => console.log('Service Worker registered successfully.'),
+          (err) => console.error('Service Worker registration failed:', err)
+        );
+      });
+    }
+  </script>
+</body>
+</html>
